@@ -151,4 +151,32 @@ const menu = [
 //       });
 //     });
 //   }
+
+const sectionCenter = document.querySelector('.section-center');
+
+window.addEventListener('DOMContentLoaded', function(){
+    diplayMenuItems(menu);
+
+});
+   
+
+function diplayMenuItems(menuItems){
+    let displayMenu = menuItems.map(function(item){
+        return `<article class="menu-item">
+        <img src=${item.img} class="photo" alt=${item.title} />
+        <div class="item-info">
+          <header>
+            <h4>${item.title}</h4>
+            <h4 class="Price">${item.price}</h4>
+          </header>
+          <p class="item-text">
+          ${item.desc}
+          </p>
+        </div>
+      </article>
+      `;
+    });
+    displayMenu = displayMenu.join("");
+    sectionCenter.innerHTML = displayMenu
+}
   
