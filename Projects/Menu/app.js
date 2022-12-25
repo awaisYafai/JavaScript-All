@@ -155,7 +155,7 @@ const menu = [
 const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
 
-// loads item
+// load items
 
 window.addEventListener('DOMContentLoaded', function(){
     diplayMenuItems(menu);
