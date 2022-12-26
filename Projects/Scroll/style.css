@@ -104,6 +104,7 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+  
 }
 h3 {
   font-size: 1.25rem;
@@ -337,16 +338,21 @@ header {
 #services,
 #tours {
   height: 80vh;
+  background: url(./pexels-photo-325185.jpeg) center/cover no-repeat;
+
 }
 #services {
   background: var(--clr-white);
+  background: url(./pexels-photo-237258.jpeg) center/cover no-repeat;
 }
 footer {
-  background: var(--clr-grey-1);
+  background: var(--clr-black);
   padding: 5rem 1rem;
+  background: url(./pexels-photo-7078417.jpeg) center/cover no-repeat;
+  
 }
 footer p {
-  color: var(--clr-white);
+  color: var(--clr-black);
   text-align: center;
   text-transform: capitalize;
   letter-spacing: var(--spacing);
