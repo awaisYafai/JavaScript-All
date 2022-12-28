@@ -235,7 +235,7 @@ nav {
   color: var(--clr-secondary);
 }
 .logo {
-  height: 50px;
+  height: 60px;
 }
 .links-container {
   height: 0;
@@ -337,9 +337,11 @@ header {
 #about,
 #services,
 #tours {
-  height: 80vh;
+  height: 95vh;
+  background: url(./pexels-photo-3769139.jpeg) center/cover no-repeat;
+}
+#about {
   background: url(./pexels-photo-325185.jpeg) center/cover no-repeat;
-
 }
 #services {
   background: var(--clr-white);
@@ -348,9 +350,10 @@ header {
 footer {
   background: var(--clr-black);
   padding: 5rem 1rem;
-  background: url(./pexels-photo-7078417.jpeg) center/cover no-repeat;
+  background: url(./pexels-photo-7078417.jpeg) center/cover no-repeat;  
   
 }
+
 footer p {
   color: var(--clr-black);
   text-align: center;
