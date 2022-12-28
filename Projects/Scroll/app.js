@@ -134,9 +134,19 @@ scrollLinks.forEach(function(link){
     // navigate to specific spot
     const id = e.currentTraget.getAttribute('href').slice(1);
     const element = document.getElementById(id);
-
-
+    // calculate the height
+    const navHeight = navbar.getBoundingClientRect().height;
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+    const fixedNav = navbar.classList.contains('fixed-nav');
     let position= element.offsetTop;
+    if(!fixedNav){
+      position = position - navHeight;
+    }
+    if (navHeight > 82){
+      position = position + containerHeight;
+    }
+
+
     window.scrollTo({
       left: 0,
       top: position,
