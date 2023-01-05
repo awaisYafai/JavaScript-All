@@ -8,7 +8,6 @@ const container = document.querySelector(".grocery-container");
 const list = document.querySelector(".grocery-list");
 const clearBtn = document.querySelector(".clear-btn");
 
-
 // edit options
 let editElement;
 let editFlag = false;
@@ -16,29 +15,29 @@ let editId = "";
 
 // Event Listeners
 // submit form
-form.addEventListener('submit', addItem);
+form.addEventListener("submit", addItem);
 
-// clear items 
-clearBtn.addEventListener('click',clearItems);
+// clear items
+clearBtn.addEventListener("click", clearItems);
 // const deleteBtn = document.querySelector('.delete-btn');
 
 // functions
 function addItem(e) {
   e.preventDefault();
   const value = grocery.value;
-//   console.log(grocery.value);
+  //   console.log(grocery.value);
 
-    const id =  new Date().getTime().toString();
-    if (value && !editFlag){
-        // console.log('add item to the list');
-        const element = document.createElement('article');
-        // add class
-        element.classList.add('grocery-item');
-        // add id
-        const attr = document.createAttribute('data-id');
-        attr.value = id;
-        element.setAttributeNode(attr);
-        element.innerHTML = `<p class="title">${value}</p>
+  const id = new Date().getTime().toString();
+  if (value && !editFlag) {
+    // console.log('add item to the list');
+    const element = document.createElement("article");
+    // add class
+    element.classList.add("grocery-item");
+    // add id
+    const attr = document.createAttribute("data-id");
+    attr.value = id;
+    element.setAttributeNode(attr);
+    element.innerHTML = `<p class="title">${value}</p>
                     <div class="btn-container">
                       <!-- edit btn -->
                       <button type="button" class="edit-btn">
@@ -50,59 +49,56 @@ function addItem(e) {
                       </button>
                     </div>`;
 
+    const deleteBtn = element.querySelector(".delete-btn");
+    const editBtn = element.querySelector(".edit-btn");
+    deleteBtn.addEventListener("click", deleteItem);
+    editBtn.addEventListener("click", editItem);
 
-                  const deleteBtn = element.querySelector('.delete-btn');
-                  const editBtn = element.querySelector('.edit-btn');
-                  deleteBtn.addEventListener('click',deleteItem);
-                  editBtn.addEventListener('click',editItem);
-
-                  // append child 
-                  list.appendChild(element);
-                //   display Alert
-                displayAlert('item added to the list', 'success');
-                // show container
-                container.classList.add('show-container');
-                // add to local storage
-                addToLocalStorage(id,value);
-                // set back to defualt
-                setBackToDefualt();
-
-    }else if(value && editFlag){
-// console.log('editing');
-editElement.innerHTML = value;
-displayAlert('value changed', 'success');
-//  edit local storage
-editLocalstorage(editId, value);
-setBackToDefualt();
-    }
-    else{
-      displayAlert('please inter value', 'danger');
-    }
+    // append child
+    list.appendChild(element);
+    //   display Alert
+    displayAlert("item added to the list", "success");
+    // show container
+    container.classList.add("show-container");
+    // add to local storage
+    addToLocalStorage(id, value);
+    // set back to defualt
+    setBackToDefualt();
+  } else if (value && editFlag) {
+    // console.log('editing');
+    editElement.innerHTML = value;
+    displayAlert("value changed", "success");
+    //  edit local storage
+    editLocalstorage(editId, value);
+    setBackToDefualt();
+  } else {
+    displayAlert("please inter value", "danger");
+  }
 }
 // display alert
-function displayAlert(text,action){
-    alert.textContent = text;
-    alert.classList.add(`alert-${action}`);
+function displayAlert(text, action) {
+  alert.textContent = text;
+  alert.classList.add(`alert-${action}`);
 
-    // remove alert
-    setTimeout(function(){
-        alert.textContent = '';
-        alert.classList.remove(`alert-${action}`);    
-    }, 1000);
+  // remove alert
+  setTimeout(function () {
+    alert.textContent = "";
+    alert.classList.remove(`alert-${action}`);
+  }, 1000);
 }
 // clear items
-function clearItems(){
-    const items = document.querySelectorAll('.grocery-item');
+function clearItems() {
+  const items = document.querySelectorAll(".grocery-item");
 
-    if(items.length > 0){
-        items.forEach(function(item){
-            list.removeChild(item)
-        })
-    }
-    container.classList.remove('show-container');
-    displayAlert('empty list', 'danger');
-    setBackToDefualt();
-    // localStorage.removeItem('item');
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      list.removeChild(item);
+    });
+  }
+  container.classList.remove("show-container");
+  displayAlert("empty list", "danger");
+  setBackToDefualt();
+  // localStorage.removeItem('item');
 }
 // delete function
 function deleteItem(e) {
@@ -133,17 +129,29 @@ function editItem(e) {
   submitBtn.textContent = "edit";
 }
 
-    // set back to defualt
-    function setBackToDefualt(){
-        // console.log('set back to defualt');
-        grocery.value = '';
-        editFlag = false;
-        editId = '';
-        submitBtn.textContent = 'submit';
-    }
-    // local storage
-    function addToLocalStorage(){
-        console.log('added to local storage');
-    }
-    function removeFromLocalStorage(id){}
-    function editLocalStorage(id,value){}
+// set back to defualt
+function setBackToDefualt() {
+  // console.log('set back to defualt');
+  grocery.value = "";
+  editFlag = false;
+  editId = "";
+  submitBtn.textContent = "submit";
+}
+// local storage
+function addToLocalStorage(id, value) {
+  const grocery = { id, value };
+  // get item
+  let items = localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+  console.log(items);
+  items.push(grocery);
+  // set item
+  localStorage.setItem("list", JSON.stringify(items));
+
+  // console.log('added to local storage');
+}
+function removeFromLocalStorage(id) {}
+function editLocalStorage(id, value) {}
+
+localStorage.setItem("");
