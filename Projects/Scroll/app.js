@@ -146,7 +146,6 @@ scrollLinks.forEach((link) => {
 //       position = position + containerHeight;
 //     }
 
-
 //     window.scrollTo({
 //       left: 0,
 //       top: position,

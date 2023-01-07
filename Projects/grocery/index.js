@@ -22,7 +22,7 @@ clearBtn.addEventListener("click", clearItems);
 // const deleteBtn = document.querySelector('.delete-btn');
 
 // load items
-window.addEventListener('DOMContentLoaded', setupItems);
+window.addEventListener("DOMContentLoaded", setupItems);
 
 // functions
 function addItem(e) {
@@ -32,7 +32,7 @@ function addItem(e) {
 
   const id = new Date().getTime().toString();
   if (value && !editFlag) {
-    createListItem(id,value);
+    createListItem(id, value);
     // console.log('add item to the list');
 
     //   display Alert
@@ -77,7 +77,7 @@ function clearItems() {
   container.classList.remove("show-container");
   displayAlert("empty list", "danger");
   setBackToDefualt();
-  localStorage.removeItem('list');
+  localStorage.removeItem("list");
 }
 // delete function
 function deleteItem(e) {
@@ -130,24 +130,22 @@ function addToLocalStorage(id, value) {
 }
 function removeFromLocalStorage(id) {
   let items = getLocalStorage();
-  items = items.filter(function(item){
-    if (item.id !== id){
+  items = items.filter(function (item) {
+    if (item.id !== id) {
       return item;
     }
   });
   localStorage.setItem("list", JSON.stringify(items));
-
 }
 function editLocalStorage(id, value) {
   let items = getLocalStorage();
-  items = items.map(function(item){
-    if (item.id === id){
+  items = items.map(function (item) {
+    if (item.id === id) {
       item.value = value;
     }
     return items;
   });
   localStorage.setItem("list", JSON.stringify(items));
-
 }
 function getLocalStorage() {
   return localStorage.getItem("list")
@@ -155,16 +153,16 @@ function getLocalStorage() {
     : [];
 }
 
-function setupItems(){
+function setupItems() {
   let items = getLocalStorage();
-  if(items.length > 0){
-items.forEach(function(item){
-  createListItem(item.id, item.value)
-})
-container.classList.add('show-container');
+  if (items.length > 0) {
+    items.forEach(function (item) {
+      createListItem(item.id, item.value);
+    });
+    container.classList.add("show-container");
   }
 }
-function createListItem(id,value){
+function createListItem(id, value) {
   const element = document.createElement("article");
   // add class
   element.classList.add("grocery-item");
@@ -191,5 +189,4 @@ function createListItem(id,value){
 
   // append child
   list.appendChild(element);
-
 }
