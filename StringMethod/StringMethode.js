@@ -8,7 +8,6 @@
 // console.log(str.trimStart());
 // console.log(str.trimEnd());
 
-
 // 3].inCludes().. determine if string contains substring
 // const str = 'My Name Is Awais Yafai.'
 // console.log(str.includes('yafai'));
@@ -19,7 +18,7 @@
 
 // 5].toUpperCase().. capatalizes entire string
 // const str = 'My Name Is Awais Yafai.'
-// console.log(str.toUpperCase()); 
+// console.log(str.toUpperCase());
 
 // 6].toLowerCase().. lower case entire string
 // const str = 'My Name Is Awais Yafai.'
