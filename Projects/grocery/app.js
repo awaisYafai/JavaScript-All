@@ -13,7 +13,7 @@
 // let editID = "";
 // // ****** event listeners **********
 
-// // submit form
+// submit form
 // form.addEventListener("submit", addItem);
 // // clear list
 // clearBtn.addEventListener("click", clearItems);
