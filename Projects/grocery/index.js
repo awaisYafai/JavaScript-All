@@ -141,9 +141,7 @@ function setBackToDefualt() {
 function addToLocalStorage(id, value) {
   const grocery = { id, value };
   // get item
-  let items = localStorage.getItem("list")
-    ? JSON.parse(localStorage.getItem("list"))
-    : [];
+  let items = getLocalStorage();
   console.log(items);
   items.push(grocery);
   // set item
@@ -153,5 +151,10 @@ function addToLocalStorage(id, value) {
 }
 function removeFromLocalStorage(id) {}
 function editLocalStorage(id, value) {}
+function getLocalStorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+}
 
 localStorage.setItem("");
