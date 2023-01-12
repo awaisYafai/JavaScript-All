@@ -15,3 +15,21 @@ function getNames(name1, name2, name3) {
 }
 // getNames(names[0], names[1], names[2]);
 getNames(...names);
+
+// with Object Rest
+
+const students = {
+  name: "awais",
+  age: "28",
+  hobbies: ["cricket", "singing"],
+};
+const { ...rest } = students;
+console.log(rest);
+
+// with object spread
+
+const newStudent = {
+  ...students,
+  age: "28",
+};
+console.log(newStudent);
