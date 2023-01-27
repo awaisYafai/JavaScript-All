@@ -1,52 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
     <style>
-        body{
-            background: url(./wallpaperflare.com_wallpaper\ \(2\).jpg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        #form-container{
-            text-align: center;
-            padding: 50px;
-            background-color: antiquewhite;
-        }
-        h1{
-            margin: 0px 0px 10px 0px;
-            color: maroon;
-        }
-        input{
-            width: 200px;
-            padding: 10px;
-            margin: 10px 0px;
-        }
-        input[type='submit']{
-            width: 222px;
-            background-color: maroon;
-            border: 0px;
-            color: white;
-        }
+      body {
+        background: url(./wallpaperflare.com_wallpaper\ \(2\).jpg);
+        background-color: maroon;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #form-container {
+        text-align: center;
+        padding: 50px;
+        background-color: antiquewhite;
+      }
+      h1 {
+        margin: 0px 0px 10px 0px;
+        color: maroon;
+      }
+      input {
+        width: 200px;
+        padding: 10px;
+        margin: 10px 0px;
+      }
+      input[type="submit"] {
+        width: 222px;
+        background-color: maroon;
+        border: 0px;
+        color: white;
+      }
+      .error {
+        color: red;
+        text-align: left;
+        margin: 0px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="form-container">
-        <form >
-            <h1>Login Form</h1>
-            <input type="text" name="username" id="username" placeholder="User Name" > <br>
-            <input type="password" name="Password" id="password" placeholder="Password"> <br>
-            <input type="Submit" name="Submit" id="Submit">
-    </form>
+      <form onsubmit="return validateform()">
+        <h1>Login Form</h1>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="User Name"
+        />
+        <br />
+        <p id="userError" class="error"></p>
+        <input
+          type="password"
+          name="Password"
+          id="password"
+          placeholder="Password"
+        />
+        <br />
+        <p id="passError" class="error"></p>
+
+        <input type="Submit" name="Submit" id="Submit" />
+      </form>
     </div>
     <script>
-        
+      let username = document.getElementById("username");
+      let password = document.getElementById("password");
+      let flag = 1;
+      function validateform() {
+        if (username.value == "") {
+          document.getElementById("userError").innerHTML = "User Name Is Empty";
+          flag = 0;
+        } else if (username.value.length < 6) {
+          document.getElementById("userError").innerHTML =
+            "Required min 6 charecters";
+          flag = 0;
+        } else document.getElementById("userError").innerHTML = "";
+        flag = 1;
+        if (password.value == "") {
+          document.getElementById("passError").innerHTML = "Password Is empty";
+          flag = 0;
+        } else {
+          document.getElementById("passError").innerHTML = "";
+          flag = 1;
+        }
+        if (flag) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     </script>
-    
-</body>
+  </body>
 </html>
