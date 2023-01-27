@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+}
+.slide-conainer{
+    position: relative;
+    width: 100%;
+
+}
+.slide img{
+    width: 100%;
+}
+.arrow{
+    cursor: pointer;
+    position: absolute;
+    top: 42%;
+    color: blue;
+    background-color:white;
+    padding: 20px 30px;
+    border-radius: 35%;
+    font-size: 50px;
+}
+.next{
+    right: 15px;
+}
+.prev{
+    left: 15px;
+}
+.caption{
+    color: aliceblue;
+    font-size: 60px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.507);
+    padding: 15px 0px;
+}
+.slide{
+    display: none;
+}
